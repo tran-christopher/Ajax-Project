@@ -1,0 +1,56 @@
+body {
+  font-family: 'Short Stack', cursive;
+}
+
+button {
+  font-family: 'Short Stack', cursive;
+}
+
+.orange {
+  background-color: #FECC90;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.tabs {
+  border-width: 0px;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.middle-tab {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.home-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded-search-bar {
+  border-radius: 20px;
+}
+
+::placeholder {
+  text-align: center;
+  line-height: 200%;
+}
+
+.align-self-vertical {
+  align-self: center;
+}
+
+.margin-left-right-body {
+  margin-top: 3%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
