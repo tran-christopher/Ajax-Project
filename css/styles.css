@@ -17,6 +17,11 @@ button {
   justify-content: space-around;
 }
 
+.search-results-header {
+  display: flex;
+  justify-content: center;
+}
+
 .tabs {
   border-width: 0;
   border-radius: 20px;
