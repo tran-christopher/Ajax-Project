@@ -9,8 +9,6 @@ $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
   getRecipes(criteria);
-  const $test = renderRecipe();
-  $searchResultsList.prepend($test);
   $searchBarOneInput.value = null;
 });
 
@@ -29,21 +27,30 @@ function getRecipes(parameter) {
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    console.log(xhr.status);
-    console.log(xhr.response);
+    const recipeObject = xhr.response;
+    for (let i = 0; i < recipeObject.hits.length; i++) {
+      const $recipeResult = renderRecipe(recipeObject.hits[i]);
+      $searchResultsList.prepend($recipeResult);
+    }
+    // console.log(array.hits[0].recipe.label)
   });
   xhr.send();
 }
 
-function renderRecipe() {
+function renderRecipe(object) {
   const $li = document.createElement('li');
   const $a = document.createElement('a');
 
   $li.appendChild($a);
 
-  $li.setAttribute('class', 'column-full');
+  $li.setAttribute('class', 'column-full margin-top text-center');
+  // placeholder for href
+  $a.setAttribute(
+    'href',
+    'https://stackoverflow.com/questions/69760291/api-cant-handle-my-request-because-of-template-literals-to-make-the-api-dynamic',
+  );
 
-  $a.textContent = 'Jello, testing';
+  $a.textContent = object.recipe.label;
 
   return $li;
 }
