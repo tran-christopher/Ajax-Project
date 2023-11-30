@@ -20,6 +20,7 @@ button {
 .search-results-header {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .tabs {
@@ -76,10 +77,26 @@ button {
   margin-top: 5%;
 }
 
+.margin-top {
+  margin-top: 5%;
+}
+
 .para {
   padding: 2px;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+.unordered-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.list {
+  align-self: center;
 }

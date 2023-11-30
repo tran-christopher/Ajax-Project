@@ -3,10 +3,14 @@ const $searchBarTwoInput = document.querySelector('.search-two');
 const $handleSearchOne = document.querySelector('.form-one');
 const $handleSearchTwo = document.querySelector('.form-two');
 
+const $searchResultsList = document.querySelector('.unordered-list');
+
 $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
   getRecipes(criteria);
+  const $test = renderRecipe();
+  $searchResultsList.prepend($test);
   $searchBarOneInput.value = null;
 });
 
@@ -29,4 +33,17 @@ function getRecipes(parameter) {
     console.log(xhr.response);
   });
   xhr.send();
+}
+
+function renderRecipe() {
+  const $li = document.createElement('li');
+  const $a = document.createElement('a');
+
+  $li.appendChild($a);
+
+  $li.setAttribute('class', 'column-full');
+
+  $a.textContent = 'Jello, testing';
+
+  return $li;
 }
