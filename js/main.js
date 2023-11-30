@@ -32,7 +32,6 @@ function getRecipes(parameter) {
       const $recipeResult = renderRecipe(recipeObject.hits[i]);
       $searchResultsList.prepend($recipeResult);
     }
-    // console.log(array.hits[0].recipe.label)
   });
   xhr.send();
 }
