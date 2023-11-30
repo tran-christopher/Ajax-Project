@@ -1,74 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header class="home-header">
-    <div>
-      <h1>DishDiscover</h1>
-    </div>
-    <div class="align-self-vertical">
-      <button class="orange tabs" type="button">Home</button>
-      <button class="orange middle-tab tabs" type="button">Recipes</button>
-      <button class="orange tabs" type="button">Browse</button>
-    </div>
-    <div class="align-self-vertical">
-      <textarea class="rounded-search-bar" placeholder="Search"></textarea>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Project</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <header class="home-header">
+      <div>
+        <h1>DishDiscover</h1>
+      </div>
+      <div class="align-self-vertical">
+        <button class="orange tabs" type="button">Home</button>
+        <button class="orange middle-tab tabs" type="button">Recipes</button>
+        <button class="orange tabs" type="button">Browse</button>
+      </div>
+      <div class="align-self-vertical">
+        <form>
+          <input class="rounded" placeholder="Search" required />
+        </form>
+      </div>
+    </header>
 
-  <main>
-    <div class="margin-left-right-body">
-      <div class="home-body">
-        <div class="column-half">
-          <p>
-            DishDiscover helps you discover new dishes
-            using whatever is in your kitchen already,
-            while also giving you the macros.
-          </p>
+    <main>
+      <div class="home-body-whole margin-left-right-body">
+        <div class="home-body height-margin">
+          <div class="orange column-half rounded">
+            <p class="text-center para">
+              DishDiscover helps you discover new dishes using whatever is in
+              your kitchen already, while also giving you the macros.
+            </p>
+          </div>
+          <div class="column-half">
+            <img
+              src="images2/image 6.jpg"
+              alt="Your link/path isn't working, fix it!" />
+          </div>
         </div>
-        <div class="column-half">
-          <img src="images2/image 6.jpg" alt="Your link/path isn't working, fix it!">
+        <div class="home-body height-margin">
+          <div class="orange column-half rounded">
+            <p class="text-center para">
+              Like one of the dishes and want to make it again? DishDiscover
+              allows you to save your favorite recipes to reference back to
+              anytime you want.
+            </p>
+          </div>
+          <div class="column-half">
+            <img
+              src="images2/image 7.webp"
+              alt="Your link/path isn't working, fix it!" />
+          </div>
+        </div>
+        <div class="home-body height-margin">
+          <div class="orange column-half rounded">
+            <p class="text-center para">
+              Ready to try it out? Search by a number of parameters, including
+              ingredients, cuisine type, or dish name itself!
+            </p>
+          </div>
+          <div class="column-half home-body">
+            <form>
+              <input class="rounded" placeholder="Search" required />
+            </form>
+          </div>
         </div>
       </div>
-      <div class="home-body">
-        <div class="column-half">
-          <p>
-          Like one of the dishes and want to make it again?
-          DishDiscover allows you to save your favorite
-          recipes to reference back to anytime you want.
-        </p>
-        </div>
-        <div class="column-half">
-          <img src="images2/image 7.webp" alt="Your link/path isn't working, fix it!">
-        </div>
-      </div>
-      <div class="home-body">
-        <div class="column-half">
-          <p>
-            Ready to try it out? Search by a number of
-            parameters, including ingredients, cuisine
-            type, or dish name itself!
-          </p>
-        </div>
-        <div class="column-half home-body">
-          <textarea class="rounded-search-bar" placeholder="Search"></textarea>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

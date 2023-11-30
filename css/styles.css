@@ -7,17 +7,18 @@ button {
 }
 
 .orange {
-  background-color: #FECC90;
+  background-color: #fecc90;
 }
 
 .home-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   justify-content: space-around;
 }
 
 .tabs {
-  border-width: 0px;
+  border-width: 0;
   border-radius: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -30,13 +31,19 @@ button {
   margin-left: 10px;
 }
 
+.home-body-whole {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .home-body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.rounded-search-bar {
+.rounded {
   border-radius: 20px;
 }
 
@@ -53,4 +60,21 @@ button {
   margin-top: 3%;
   margin-left: 15%;
   margin-right: 15%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.height-margin {
+  height: 198.64px;
+  margin-top: 5%;
+}
+
+.para {
+  padding: 2px;
+}
+
+button:hover {
+  cursor: pointer;
 }
