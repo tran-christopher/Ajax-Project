@@ -9,14 +9,14 @@ $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
   getRecipes(criteria);
-  $searchBarOneInput.value = null;
+  $searchBarOneInput.value = '';
 });
 
 $handleSearchTwo.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
   getRecipes(criteria);
-  $searchBarTwoInput.value = null;
+  $searchBarTwoInput.value = '';
 });
 
 function getRecipes(parameter) {
