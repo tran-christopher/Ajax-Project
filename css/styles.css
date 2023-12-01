@@ -1,0 +1,101 @@
+body {
+  font-family: 'Short Stack', cursive;
+}
+
+button {
+  font-family: 'Short Stack', cursive;
+}
+
+.orange {
+  background-color: #fecc90;
+}
+
+.home-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.search-results-header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tabs {
+  border-width: 0;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.middle-tab {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.home-body-whole {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded {
+  border-radius: 20px;
+}
+
+::placeholder {
+  text-align: center;
+  line-height: 200%;
+}
+
+.align-self-vertical {
+  align-self: center;
+}
+
+.margin-left-right-body {
+  margin-top: 3%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.height-margin {
+  height: 198.64px;
+  margin-top: 5%;
+}
+
+.margin-top {
+  margin-top: 5%;
+}
+
+.para {
+  padding: 2px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.unordered-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.list {
+  align-self: center;
+}

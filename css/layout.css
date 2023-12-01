@@ -1,0 +1,23 @@
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-half {
+  width: 50%;
+}
