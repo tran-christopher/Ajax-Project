@@ -53,3 +53,23 @@ function renderRecipe(object) {
 
   return $li;
 }
+
+const $homeView = document.querySelector('.home');
+const $searchView = document.querySelector('.search');
+const $selectView = document.querySelector('.select');
+
+function viewSwap(view) {
+  if (view === 'home') {
+    $homeView.classList.remove('hidden');
+    $searchView.classList.add('hidden');
+    $selectView.classList.add('hidden');
+  } else if (view === 'search') {
+    $homeView.classList.add('hidden');
+    $searchView.classList.remove('hidden');
+    $selectView.classList.add('hidden');
+  } else if (view === 'select') {
+    $homeView.classList.add('hidden');
+    $searchView.classList.add('hidden');
+    $selectView.classList.remove('hidden');
+  }
+}
