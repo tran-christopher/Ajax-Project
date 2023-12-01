@@ -9,6 +9,7 @@ $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
   getRecipes(criteria);
+  viewSwap('search');
   $searchBarOneInput.value = '';
 });
 
@@ -16,6 +17,7 @@ $handleSearchTwo.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
   getRecipes(criteria);
+  viewSwap('search');
   $searchBarTwoInput.value = '';
 });
 
