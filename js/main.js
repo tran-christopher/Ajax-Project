@@ -5,6 +5,10 @@ const $handleSearchTwo = document.querySelector('.form-two');
 
 const $searchResultsList = document.querySelector('.unordered-list');
 
+const $homeView = document.querySelector('.home');
+const $searchView = document.querySelector('.search');
+const $selectView = document.querySelector('.select');
+
 $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
@@ -31,34 +35,42 @@ function getRecipes(parameter) {
   xhr.addEventListener('load', function () {
     const recipeObject = xhr.response;
     for (let i = 0; i < recipeObject.hits.length; i++) {
-      const $recipeResult = renderRecipe(recipeObject.hits[i]);
+      const $recipeResult = searchRecipes(recipeObject.hits[i]);
       $searchResultsList.prepend($recipeResult);
     }
   });
   xhr.send();
 }
 
-function renderRecipe(object) {
+function searchRecipes(object) {
   const $li = document.createElement('li');
   const $a = document.createElement('a');
-
   $li.appendChild($a);
-
   $li.setAttribute('class', 'column-full margin-top text-center');
   // placeholder for href
   $a.setAttribute(
     'href',
     'https://stackoverflow.com/questions/69760291/api-cant-handle-my-request-because-of-template-literals-to-make-the-api-dynamic',
   );
-
   $a.textContent = object.recipe.label;
-
   return $li;
 }
 
-const $homeView = document.querySelector('.home');
-const $searchView = document.querySelector('.search');
-const $selectView = document.querySelector('.select');
+function renderRecipe(object) {
+  const $bigDiv = document.createElement('div');
+  const $recipeNameDiv = document.createElement('div');
+  const $recipeName = document.createElement('h2');
+  const $imageDiv = document.createElement('div');
+  const $image = document.createElement('img');
+
+  $bigDiv.classList.add('home-body, height-margin');
+  $recipeNameDiv.classList.add('column-half');
+  $imageDiv.classList.add('column-half');
+
+  $bigDiv.appendChild($recipeNameDiv);
+  $bigDiv.appendChild($imageDiv);
+  $recipeNameDiv.appendChild;
+}
 
 function viewSwap(view) {
   if (view === 'home') {
