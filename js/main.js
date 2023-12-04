@@ -34,6 +34,7 @@ function getRecipes(parameter) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     const recipeObject = xhr.response;
+    console.log(recipeObject);
     for (let i = 0; i < recipeObject.hits.length; i++) {
       const $recipeResult = searchRecipes(recipeObject.hits[i]);
       $searchResultsList.prepend($recipeResult);
@@ -48,10 +49,8 @@ function searchRecipes(object) {
   $li.appendChild($a);
   $li.setAttribute('class', 'column-full margin-top text-center');
   // placeholder for href
-  $a.setAttribute(
-    'href',
-    'https://stackoverflow.com/questions/69760291/api-cant-handle-my-request-because-of-template-literals-to-make-the-api-dynamic',
-  );
+  $a.setAttribute('href', '#');
+  $a.setAttribute('onclick', '');
   $a.textContent = object.recipe.label;
   return $li;
 }
@@ -69,7 +68,10 @@ function renderRecipe(object) {
 
   $bigDiv.appendChild($recipeNameDiv);
   $bigDiv.appendChild($imageDiv);
-  $recipeNameDiv.appendChild;
+  $recipeNameDiv.appendChild($recipeName);
+  $imageDiv.appendChild($image);
+
+  return $bigDiv;
 }
 
 function viewSwap(view) {
