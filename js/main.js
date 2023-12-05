@@ -43,6 +43,15 @@ function getRecipes(parameter) {
   xhr.send();
 }
 
+function getOneRecipe(object) {
+  xhr.open(
+    'GET',
+    `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${object.recipe.uri}&app_id=b093ed76&app_key=9d739d793a989a61b52ed12591b6a75a`,
+  );
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {});
+}
+
 function searchRecipes(object) {
   const $li = document.createElement('li');
   const $a = document.createElement('a');
@@ -50,7 +59,7 @@ function searchRecipes(object) {
   $li.setAttribute('class', 'column-full margin-top text-center');
   // placeholder for href
   $a.setAttribute('href', '#');
-  $a.setAttribute('onclick', '');
+  // $a.setAttribute('onclick', );
   $a.textContent = object.recipe.label;
   return $li;
 }
@@ -65,6 +74,8 @@ function renderRecipe(object) {
   $bigDiv.classList.add('home-body, height-margin');
   $recipeNameDiv.classList.add('column-half');
   $imageDiv.classList.add('column-half');
+
+  $image.src = object.recipe.images.THUMBNAIL;
 
   $bigDiv.appendChild($recipeNameDiv);
   $bigDiv.appendChild($imageDiv);
