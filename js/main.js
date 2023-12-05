@@ -43,24 +43,35 @@ function getRecipes(parameter) {
   xhr.send();
 }
 
-function getOneRecipe(object) {
+function getOneRecipe(uri) {
+  const xhr = new XMLHttpRequest();
   xhr.open(
     'GET',
-    `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${object.recipe.uri}&app_id=b093ed76&app_key=9d739d793a989a61b52ed12591b6a75a`,
+    `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${uri}&app_id=b093ed76&app_key=%209d739d793a989a61b52ed12591b6a75a`,
   );
   xhr.responseType = 'json';
-  xhr.addEventListener('load', function () {});
+  xhr.addEventListener('load', function () {
+    const recipeObject = xhr.response;
+    const $displayRecipe = renderRecipe(recipeObject);
+    $selectView.prepend($displayRecipe);
+  });
+  xhr.send();
 }
 
 function searchRecipes(object) {
   const $li = document.createElement('li');
   const $a = document.createElement('a');
+
   $li.appendChild($a);
   $li.setAttribute('class', 'column-full margin-top text-center');
-  // placeholder for href
   $a.setAttribute('href', '#');
-  // $a.setAttribute('onclick', );
+
   $a.textContent = object.recipe.label;
+
+  $a.addEventListener('click', function (event) {
+    event.preventDefault();
+  });
+
   return $li;
 }
 
@@ -75,7 +86,8 @@ function renderRecipe(object) {
   $recipeNameDiv.classList.add('column-half');
   $imageDiv.classList.add('column-half');
 
-  $image.src = object.recipe.images.THUMBNAIL;
+  $recipeName.textContent = object.hits[0].recipe.label;
+  $image.src = object.hits[0].recipe.images.THUMBNAIL.url;
 
   $bigDiv.appendChild($recipeNameDiv);
   $bigDiv.appendChild($imageDiv);
