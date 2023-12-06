@@ -47,7 +47,7 @@ function getOneRecipe(uri) {
   const xhr = new XMLHttpRequest();
   xhr.open(
     'GET',
-    `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${uri}&app_id=b093ed76&app_key=%209d739d793a989a61b52ed12591b6a75a`,
+    `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_b79327d05b8e5b838ad6cfd9576b30b6&app_id=b093ed76&app_key=%209d739d793a989a61b52ed12591b6a75a`,
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
@@ -59,6 +59,7 @@ function getOneRecipe(uri) {
 }
 
 function searchRecipes(object) {
+  const test = object.recipe.uri;
   const $li = document.createElement('li');
   const $a = document.createElement('a');
 
@@ -70,6 +71,8 @@ function searchRecipes(object) {
 
   $a.addEventListener('click', function (event) {
     event.preventDefault();
+    getOneRecipe(test);
+    viewSwap('select');
   });
 
   return $li;
@@ -82,9 +85,9 @@ function renderRecipe(object) {
   const $imageDiv = document.createElement('div');
   const $image = document.createElement('img');
 
-  $bigDiv.classList.add('home-body, height-margin');
-  $recipeNameDiv.classList.add('column-half');
-  $imageDiv.classList.add('column-half');
+  $bigDiv.setAttribute('class', 'home-body height-margin');
+  $recipeNameDiv.setAttribute('class', 'column-half');
+  $imageDiv.setAttribute('class', 'column-half');
 
   $recipeName.textContent = object.hits[0].recipe.label;
   $image.src = object.hits[0].recipe.images.THUMBNAIL.url;
