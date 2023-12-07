@@ -59,7 +59,11 @@ function getOneRecipe(uri) {
     const recipeObject = xhr.response;
     console.log(recipeObject);
     const $displayRecipe = renderRecipe(recipeObject);
+    const $displayIngredients = getIngredients(recipeObject);
+    const $displayInstructions = getInstructions(recipeObject);
     $selectView.prepend($displayRecipe);
+    $ingredientDisplay.appendChild($displayIngredients);
+    $instructionDisplay.appendChild($displayInstructions);
   });
   xhr.send();
 }
@@ -98,19 +102,42 @@ function renderRecipe(object) {
   $recipeName.textContent = object.hits[0].recipe.label;
   $image.src = object.hits[0].recipe.images.REGULAR.url;
 
-  for (let i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
-    const $ingredient = document.createElement('p');
-    $ingredient.textContent = object.hits[0].recipe.ingredients[i].text;
-    console.log($ingredient);
-    $ingredientDisplay.appendChild($recipeName);
-  }
-
   $bigDiv.appendChild($recipeNameDiv);
   $bigDiv.appendChild($imageDiv);
   $recipeNameDiv.appendChild($recipeName);
   $imageDiv.appendChild($image);
 
   return $bigDiv;
+}
+
+//create div to hold everything, might want to format so to the center more, put all p's in
+//there, return div and do same as you did for other function
+function getIngredients(object) {
+  const $ingredientDiv = document.createElement('div');
+  $ingredientDiv.setAttribute(
+    'class',
+    'column-full height-full height-margin-two',
+  );
+  for (let i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
+    const $ingredient = document.createElement('p');
+    $ingredient.textContent = object.hits[0].recipe.ingredients[i].text;
+    $ingredientDiv.appendChild($ingredient);
+  }
+  return $ingredientDiv;
+}
+
+function getInstructions(object) {
+  const $instructionDiv = document.createElement('div');
+  $instructionDiv.setAttribute(
+    'class',
+    'column-full height-full height-margin-two',
+  );
+  for (let i = 0; i < object.hits[0].recipe.instructionLines.length; i++) {
+    const $instruction = document.createElement('p');
+    $instruction.textContent = object.hits[0].recipe.instructionLines[i];
+    $instructionDiv.appendChild($instruction);
+  }
+  return $instructionDiv;
 }
 
 function viewSwap(view) {

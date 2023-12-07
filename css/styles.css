@@ -119,3 +119,7 @@ button:hover {
 .height-full {
   height: 100%;
 }
+
+.overflow {
+  overflow: hidden;
+}
