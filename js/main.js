@@ -9,6 +9,10 @@ const $homeView = document.querySelector('.home');
 const $searchView = document.querySelector('.search');
 const $selectView = document.querySelector('.select');
 
+const $ingredientDisplay = document.querySelector('.ingredients');
+const $instructionDisplay = document.querySelector('.instructions');
+const $nutritionDisplay = document.querySelector('.nutrition');
+
 $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
@@ -53,6 +57,7 @@ function getOneRecipe(uri) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     const recipeObject = xhr.response;
+    console.log(recipeObject);
     const $displayRecipe = renderRecipe(recipeObject);
     $selectView.prepend($displayRecipe);
   });
@@ -92,6 +97,13 @@ function renderRecipe(object) {
 
   $recipeName.textContent = object.hits[0].recipe.label;
   $image.src = object.hits[0].recipe.images.REGULAR.url;
+
+  for (let i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
+    const $ingredient = document.createElement('p');
+    $ingredient.textContent = object.hits[0].recipe.ingredients[i].text;
+    console.log($ingredient);
+    $ingredientDisplay.appendChild($recipeName);
+  }
 
   $bigDiv.appendChild($recipeNameDiv);
   $bigDiv.appendChild($imageDiv);
