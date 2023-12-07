@@ -123,3 +123,7 @@ button:hover {
 .overflow {
   overflow: hidden;
 }
+
+.max-height {
+  max-height: 200px;
+}

@@ -61,9 +61,11 @@ function getOneRecipe(uri) {
     const $displayRecipe = renderRecipe(recipeObject);
     const $displayIngredients = getIngredients(recipeObject);
     const $displayInstructions = getInstructions(recipeObject);
+    const $displayNutrition = getNutrition(recipeObject);
     $selectView.prepend($displayRecipe);
     $ingredientDisplay.appendChild($displayIngredients);
     $instructionDisplay.appendChild($displayInstructions);
+    $nutritionDisplay.appendChild($displayNutrition);
   });
   xhr.send();
 }
@@ -110,8 +112,6 @@ function renderRecipe(object) {
   return $bigDiv;
 }
 
-//create div to hold everything, might want to format so to the center more, put all p's in
-//there, return div and do same as you did for other function
 function getIngredients(object) {
   const $ingredientDiv = document.createElement('div');
   $ingredientDiv.setAttribute(
@@ -138,6 +138,33 @@ function getInstructions(object) {
     $instructionDiv.appendChild($instruction);
   }
   return $instructionDiv;
+}
+
+function getNutrition(object) {
+  const $nutritionDiv = document.createElement('div');
+  $nutritionDiv.setAttribute(
+    'class',
+    'column-full height-full height-margin-two',
+  );
+  const nutritionObject = object.hits[0].recipe.totalNutrients;
+
+  for (const key in nutritionObject) {
+    if (nutritionObject.hasOwnProperty(key)) {
+      const eachObject = nutritionObject[key];
+      let nutritionText = `${key}: `;
+
+      for (const property in eachObject) {
+        if (eachObject.hasOwnProperty(property)) {
+          nutritionText += `${property}: ${eachObject[property]}, `;
+        }
+      }
+      nutritionText = nutritionText.slice(0, -2);
+      const $nutrition = document.createElement('p');
+      $nutrition.textContent = nutritionText;
+      $nutritionDiv.appendChild($nutrition);
+    }
+  }
+  return $nutritionDiv;
 }
 
 function viewSwap(view) {
