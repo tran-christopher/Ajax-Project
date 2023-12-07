@@ -13,6 +13,12 @@ const $ingredientDisplay = document.querySelector('.ingredients');
 const $instructionDisplay = document.querySelector('.instructions');
 const $nutritionDisplay = document.querySelector('.nutrition');
 
+const $homeButton = document.querySelector('.home-button');
+
+$homeButton.addEventListener('click', function (event) {
+  viewSwap('home');
+});
+
 $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
   const criteria = $searchBarOneInput.value;
@@ -39,9 +45,18 @@ function getRecipes(parameter) {
   xhr.addEventListener('load', function () {
     const recipeObject = xhr.response;
     console.log(recipeObject);
-    for (let i = 0; i < recipeObject.hits.length; i++) {
-      const $recipeResult = searchRecipes(recipeObject.hits[i]);
-      $searchResultsList.prepend($recipeResult);
+    let check = document.getElementsByClassName('check');
+    if (check[0] !== undefined) {
+      console.log(check[0].textContent);
+      for (let i = 0; i < recipeObject.hits.length; i++) {
+        const $recipeResult = searchRecipes(recipeObject.hits[i]);
+        $searchResultsList.replaceChildren($recipeResult);
+      }
+    } else {
+      for (let i = 0; i < recipeObject.hits.length; i++) {
+        const $recipeResult = searchRecipes(recipeObject.hits[i]);
+        $searchResultsList.prepend($recipeResult);
+      }
     }
   });
   xhr.send();
@@ -76,7 +91,7 @@ function searchRecipes(object) {
   const $a = document.createElement('a');
 
   $li.appendChild($a);
-  $li.setAttribute('class', 'column-full margin-top text-center');
+  $li.setAttribute('class', 'check column-full margin-top text-center');
   $a.setAttribute('href', '#');
 
   $a.textContent = object.recipe.label;
