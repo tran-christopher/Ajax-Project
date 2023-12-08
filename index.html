@@ -20,9 +20,11 @@
         <h1>DishDiscover</h1>
       </div>
       <div class="align-self-vertical">
-        <button class="orange tabs" type="button">Home</button>
+        <button class="home-button orange tabs" type="button">Home</button>
         <button class="orange middle-tab tabs" type="button">Recipes</button>
-        <button class="orange tabs" type="button">Browse</button>
+        <button class="results-button orange tabs" type="button">
+          Results
+        </button>
       </div>
       <div class="align-self-vertical">
         <form class="form-one">
@@ -32,7 +34,7 @@
     </header>
 
     <main>
-      <div class="home-body-whole margin-left-right-body">
+      <div class="home home-body-whole margin-left-right-body">
         <div class="home-body height-margin">
           <div class="orange column-half rounded">
             <p class="text-center para">
@@ -75,10 +77,38 @@
         </div>
       </div>
 
-      <div class="search-results-header column-full">
+      <div class="search search-results-header column-full hidden">
         <h2 class="">Search Results</h2>
         <div class="column-full">
           <ul class="unordered-list"></ul>
+        </div>
+      </div>
+
+      <div
+        class="select home-body-whole margin-left-right-body hidden height-full overflow">
+        <div class="column-full">
+          <div class="ingredients column-full height-margin-two height-full">
+            <button class="orange rounded tabs" type="button">
+              Ingredients
+            </button>
+          </div>
+          <div class="instructions column-full height-margin-two height-full">
+            <button class="orange rounded tabs" type="button">
+              Instructions
+            </button>
+          </div>
+          <div class="nutrition column-full height-margin-two height-full">
+            <button class="orange rounded tabs" type="button">Nutrition</button>
+          </div>
+        </div>
+
+        <div class="column-full save-and-delete height-margin-two">
+          <div>
+            <button class="orange rounded tabs" type="submit">Save</button>
+          </div>
+          <div>
+            <button class="orange rounded tabs" type="submit">Delete</button>
+          </div>
         </div>
       </div>
     </main>
