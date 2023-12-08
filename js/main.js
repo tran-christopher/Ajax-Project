@@ -14,10 +14,15 @@ const $instructionDisplay = document.querySelector('.instructions');
 const $nutritionDisplay = document.querySelector('.nutrition');
 
 const $homeButton = document.querySelector('.home-button');
+const $resultsButton = document.querySelector('results-button');
 
 $homeButton.addEventListener('click', function (event) {
   viewSwap('home');
 });
+
+// $resultsButton.addEventListener('click', function (event) {
+//   viewSwap('search')
+// });
 
 $handleSearchOne.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -45,18 +50,9 @@ function getRecipes(parameter) {
   xhr.addEventListener('load', function () {
     const recipeObject = xhr.response;
     console.log(recipeObject);
-    let check = document.getElementsByClassName('check');
-    if (check[0] !== undefined) {
-      console.log(check[0].textContent);
-      for (let i = 0; i < recipeObject.hits.length; i++) {
-        const $recipeResult = searchRecipes(recipeObject.hits[i]);
-        $searchResultsList.replaceChildren($recipeResult);
-      }
-    } else {
-      for (let i = 0; i < recipeObject.hits.length; i++) {
-        const $recipeResult = searchRecipes(recipeObject.hits[i]);
-        $searchResultsList.prepend($recipeResult);
-      }
+    for (let i = 0; i < recipeObject.hits.length; i++) {
+      const $recipeResult = searchRecipes(recipeObject.hits[i]);
+      $searchResultsList.prepend($recipeResult);
     }
   });
   xhr.send();
